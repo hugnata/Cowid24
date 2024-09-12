@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://07efux66clon"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okgra"]
+
+[node name="gamu" type="Node2D"]
+
+[node name="Giocaro" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_okgra")
