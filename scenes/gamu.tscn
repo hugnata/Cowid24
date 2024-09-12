@@ -1,8 +1,172 @@
-[gd_scene load_steps=2 format=3 uid="uid://07efux66clon"]
+[gd_scene load_steps=13 format=3 uid="uid://07efux66clon"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_okgra"]
+[ext_resource type="Texture2D" uid="uid://ruq7143ki6x6" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="1_4am8p"]
+[ext_resource type="Script" path="res://scenes/giocaro.gd" id="2_pls3w"]
+
+[sub_resource type="Animation" id="Animation_jfh0x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+
+[sub_resource type="Animation" id="Animation_jc230"]
+resource_name = "down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_ygcpa"]
+resource_name = "idle_down"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_0dioh"]
+resource_name = "idle_left"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_vsgae"]
+resource_name = "idle_right"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_ah3rc"]
+resource_name = "idle_up"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_ntx6t"]
+resource_name = "left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 11]
+}
+
+[sub_resource type="Animation" id="Animation_pjsot"]
+resource_name = "right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [14, 15]
+}
+
+[sub_resource type="Animation" id="Animation_1jp4g"]
+resource_name = "up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q4y12"]
+_data = {
+"RESET": SubResource("Animation_jfh0x"),
+"down": SubResource("Animation_jc230"),
+"idle_down": SubResource("Animation_ygcpa"),
+"idle_left": SubResource("Animation_0dioh"),
+"idle_right": SubResource("Animation_vsgae"),
+"idle_up": SubResource("Animation_ah3rc"),
+"left": SubResource("Animation_ntx6t"),
+"right": SubResource("Animation_pjsot"),
+"up": SubResource("Animation_1jp4g")
+}
 
 [node name="gamu" type="Node2D"]
 
-[node name="Giocaro" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_okgra")
+[node name="Giocaro" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-283, -266)
+texture = ExtResource("1_4am8p")
+hframes = 4
+vframes = 4
+frame = 6
+script = ExtResource("2_pls3w")
+
+[node name="GiocaroAnimation" type="AnimationPlayer" parent="Giocaro"]
+libraries = {
+"": SubResource("AnimationLibrary_q4y12")
+}
