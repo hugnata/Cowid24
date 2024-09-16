@@ -1,0 +1,31 @@
+Bonjour à toi, et bienvenue parmis nous ! 
+[Appuie sur Entrée pour continuer]
+
+Tu as réussi à appuyer sur une touche ! Cela veut dire que tu
+sais lire, ou que tu as beaucoup de chance...
+
+WoW, ce n'étais pas un coup de chance, tu as réussi à appuyer 
+sur la touche une seconde fois. Sais-tu les bonobos en sont 
+capables aussi ?
+
+Trois fois, ça commence à faire beaucoup... Je suppose que tu
+n'es pas un bonobo. Qui es-tu au juste ? 
+
+<if true_label="Je suis un pirate !" false_label="Je ne sais plus trop" true="pirate" false="idk"/>
+
+<label name="pirate"/>
+Tu es un pirate ? Je le savais ! Tu es la bienvenue sur mon
+île. Par les temps qui courent, peu de gens me rendent 
+visite.
+
+<goto label="suivez moi">
+
+<label name="idk"/>
+Au vu de ton tricorne, tu m'as tout l'air d'être un pirate...
+Tu as du te perdre lors de la dernière tempête. Bienvenue
+sur mon île !
+
+<label name="suivez moi">
+Viens boire un petit coup à la maison
+
+<exit>

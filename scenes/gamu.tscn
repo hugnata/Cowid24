@@ -1,6 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://8jjmqtfb8eui"]
+[gd_scene load_steps=16 format=3 uid="uid://8jjmqtfb8eui"]
 
 [ext_resource type="Texture2D" uid="uid://ruq7143ki6x6" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="1_4am8p"]
+[ext_resource type="Script" path="res://scripts/init.gd" id="1_hrvy0"]
+[ext_resource type="PackedScene" uid="uid://bqskl1k7wps3l" path="res://scenes/DialogManager.tscn" id="2_3y3nb"]
 [ext_resource type="Script" path="res://scenes/giocaro.gd" id="2_pls3w"]
 [ext_resource type="PackedScene" uid="uid://bmv5tx17gjijq" path="res://scenes/map.tscn" id="3_jycyd"]
 
@@ -157,6 +159,7 @@ _data = {
 }
 
 [node name="gamu" type="Node2D"]
+script = ExtResource("1_hrvy0")
 
 [node name="Giocaro" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -178,3 +181,6 @@ position = Vector2(-283, -266)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-276, -356)
 zoom = Vector2(2, 2)
+
+[node name="Dialog" parent="." instance=ExtResource("2_3y3nb")]
+position = Vector2(-226, -521)
