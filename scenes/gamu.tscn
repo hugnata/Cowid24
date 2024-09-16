@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://07efux66clon"]
+[gd_scene load_steps=14 format=3 uid="uid://8jjmqtfb8eui"]
 
 [ext_resource type="Texture2D" uid="uid://ruq7143ki6x6" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="1_4am8p"]
 [ext_resource type="Script" path="res://scenes/giocaro.gd" id="2_pls3w"]
+[ext_resource type="PackedScene" uid="uid://bmv5tx17gjijq" path="res://scenes/map.tscn" id="3_jycyd"]
 
 [sub_resource type="Animation" id="Animation_jfh0x"]
 length = 0.001
@@ -170,3 +171,10 @@ script = ExtResource("2_pls3w")
 libraries = {
 "": SubResource("AnimationLibrary_q4y12")
 }
+
+[node name="Map" parent="." instance=ExtResource("3_jycyd")]
+position = Vector2(-283, -266)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-276, -356)
+zoom = Vector2(2, 2)

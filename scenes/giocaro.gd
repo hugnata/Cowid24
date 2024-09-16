@@ -3,7 +3,7 @@ extends Sprite2D
 
 enum direction {UP,DOWN,RIGHT,LEFT}
 var facing=direction.UP
-
+var speed=1.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -26,18 +26,18 @@ func _process(delta: float) -> void:
 		facing=direction.UP
 		moving=true
 		
-	if velocity.length()>0:
-		velocity= velocity.normalized()*speed
-		$AnimatedSprite2D.play()
-	else :
-		$AnimatedSprite2D.stop()
-		
-	if velocity.x!=0:
-		$AnimatedSprite2D.animation = "walk"
-		$AnimatedSprite2D.flip_v = false
-		$AnimatedSprite2D.flip_h =velocity.x<0
-	elif velocity.y!=0:
-		$AnimatedSprite2D.animation ="up"
-		$AnimatedSprite2D.flip_v = velocity.y>0
-	
+	#if velocity.length()>0:
+		#velocity= velocity.normalized()*speed
+		#$AnimatedSprite2D.play()
+	#else :
+		#$AnimatedSprite2D.stop()
+		#
+	#if velocity.x!=0:
+		#$AnimatedSprite2D.animation = "walk"
+		#$AnimatedSprite2D.flip_v = false
+		#$AnimatedSprite2D.flip_h =velocity.x<0
+	#elif velocity.y!=0:
+		#$AnimatedSprite2D.animation ="up"
+		#$AnimatedSprite2D.flip_v = velocity.y>0
+	#
 	pass
