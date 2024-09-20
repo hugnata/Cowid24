@@ -1,4 +1,4 @@
-# Cowid 24: Flatten the Curve
+# Cowid 24: Flatten the Curve :cow2:
 
 You're the only one who can save our livestock by containing the Cowid 24 epidemic.  The aim of the
 game is simple: to keep the contamination rate below the target while a vaccine is being produced.
