@@ -14,9 +14,9 @@ that are contaminated will remain infectious but symptom-free before they start 
 -----
 
 TODO:
-	- [ ] Un glisser déposer pour un Sprite2D
-		- [ ] Gérer le cas où deux vaches sont aux même endroit
-	- [ ] Mouvement des personnes (IA)
-	- [ ] État interne des personnes
-	- [ ] Système pour le compte des malades et le seuil
-	- [ ] Système de contamination
+- [ ] Un glisser déposer pour un Sprite2D
+	- [ ] Gérer le cas où deux vaches sont aux même endroit
+- [ ] Mouvement des personnes (IA)
+- [ ] État interne des personnes
+- [ ] Système pour le compte des malades et le seuil
+- [ ] Système de contamination
