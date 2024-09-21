@@ -10,8 +10,8 @@ const SPEED =20.0
 
 #Member variables
 var m_move_timer: float = 0.0 
-var m_sickness_timer:float=0.0
-var m_infection_timer:float=0.0
+var m_sickness_timer:float=INF
+var m_infection_timer:float=INF
 var m_moving_state:MovingState=MovingState.MOVING
 var m_health_state:HealthState=HealthState.HEALTHY
 var m_animation_cycle:AnimationPlayer
@@ -25,6 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	infects_other(delta)
 	progress_desease(delta)
+	update_animation()
 
 func _physics_process(delta: float) -> void:
 	m_move_timer-=delta
@@ -34,24 +35,36 @@ func _physics_process(delta: float) -> void:
 	if move_and_slide():
 		change_moving_state()
 		
-func progress_desease(delta: float):
+func progress_desease(delta: float,force_new_health_state =-1):
 	m_sickness_timer-=delta
-	if(m_health_state==HealthState.HEALTHY):
+	if(m_health_state==HealthState.HEALTHY and force_new_health_state==-1):
 		return
-	if m_sickness_timer>0:
+	if m_sickness_timer>0 and force_new_health_state==-1:
 		return
 	
 	match m_health_state:
+		HealthState.HEALTHY:
+			m_sickness_timer=rng.randf_range(10,30)
+			m_infection_timer=rng.randf_range(5,10)
+			m_health_state=HealthState.CONTAMINATED
+			print("Now CONTAMINATED")
+			
 		HealthState.CONTAMINATED:
 			m_sickness_timer=rng.randf_range(15,30)
-			m_health_state=HealthState.CONTAMINATED
+			m_infection_timer=rng.randf_range(2,4)
+			m_health_state=HealthState.SICK
+			print("Now SICK")
 			
 		HealthState.SICK:
-			m_sickness_timer=rng.randf_range(20,30)
-			m_health_state=HealthState.IMMUNIZED
-		HealthState.IMMUNIZED:
 			m_sickness_timer=rng.randf_range(10,15)
+			m_infection_timer=INF
+			m_health_state=HealthState.IMMUNIZED
+			print("Now IMMUNIZED")
+			
+		HealthState.IMMUNIZED:
+			m_sickness_timer=INF
 			m_health_state=HealthState.HEALTHY
+			print("Now HEALTHY")
 			
 func infects_other(delta: float): 
 	m_infection_timer-=delta
@@ -62,15 +75,30 @@ func infects_other(delta: float):
 	
 	match m_health_state:
 		HealthState.CONTAMINATED:
-			m_sickness_timer=0.5
+			m_infection_timer=rng.randf_range(5,10)
+			print("Infecting")
 		HealthState.SICK:
-			m_sickness_timer=0.5
+			m_infection_timer=rng.randf_range(2,4)
+			print("Infecting")
 			
 	#Infection
 	var infections_areas: Array[Area2D]=$InfectionZone.get_overlapping_areas()
 	if infections_areas.is_empty():
 		return
 	
+	for infections_area in infections_areas:
+		if rng.randf_range(0,1.0)<0.5:
+			infections_area.get_parent().set_health_state(HealthState.CONTAMINATED)
+	
+func update_animation():
+	if m_health_state==HealthState.HEALTHY or m_health_state==HealthState.IMMUNIZED:
+		match m_moving_state:
+			MovingState.STATIC:
+				m_animation_cycle.play("idle")
+			MovingState.MOVING:
+				m_animation_cycle.play("moving")
+	else:
+		m_animation_cycle.play("sick")
 
 func change_moving_state():
 	match m_moving_state:
@@ -91,12 +119,10 @@ func get_state():
 	return m_health_state
 
 func set_health_state(new_health_state: HealthState):
-	m_health_state=new_health_state
-	if m_health_state==HealthState.HEALTHY:
+	if m_health_state==HealthState.IMMUNIZED:
+		print("Nope,immunized")
 		return
-		
-	m_infection_timer=10.0
-	m_sickness_timer=10.0
+	progress_desease(0.0,new_health_state)
 	
 func stop_moving_madafaka():
 	m_move_timer=INF

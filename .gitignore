@@ -3,3 +3,4 @@
 /android/
 addons/godot-git-plugin
 *.tmp
+export_presets.cfg

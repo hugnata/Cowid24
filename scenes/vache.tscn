@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddxpjlx86dv77"]
+[gd_scene load_steps=10 format=3 uid="uid://ddxpjlx86dv77"]
 
 [ext_resource type="Texture2D" uid="uid://dbmaq1k6ecoto" path="res://assets/Characters/Free_Cow_Sprites_-_Modified.png" id="2_0minx"]
 [ext_resource type="Script" path="res://scenes/vache.gd" id="2_sjswn"]
@@ -52,11 +52,27 @@ tracks/0/keys = {
 "values": [3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_wqqpx"]
+resource_name = "sick"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VacheSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v30tp"]
 _data = {
 "RESET": SubResource("Animation_qro8v"),
 "idle": SubResource("Animation_cvsw0"),
-"moving": SubResource("Animation_5616k")
+"moving": SubResource("Animation_5616k"),
+"sick": SubResource("Animation_wqqpx")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sbs"]
