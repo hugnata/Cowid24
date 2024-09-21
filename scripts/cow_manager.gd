@@ -9,6 +9,8 @@ extends Node
 
 @onready var rng = RandomNumberGenerator.new()
 
+var m_timer_check_sick_cows:Timer = Timer.new()
+
 func _ready() -> void:
 	assert(spawning_area.shape.get_class()=="RectangleShape2D" && 
 	"The cow manager script only handles Rectangle Spawning Area for now")
@@ -29,5 +31,3 @@ func spawn_cow():
 	var cow: Node2D = cow_scene.instantiate()
 	cow.set_global_position(Vector2(x,y))
 	cows_node.add_child(cow)
-	
-	

@@ -1,6 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddxpjlx86dv77"]
+[gd_scene load_steps=9 format=3 uid="uid://ddxpjlx86dv77"]
 
-[ext_resource type="Texture2D" uid="uid://betysxas66av5" path="res://assets/Characters/Free Cow Sprites.png" id="1_2eh31"]
+[ext_resource type="Texture2D" uid="uid://dbmaq1k6ecoto" path="res://assets/Characters/Free_Cow_Sprites_-_Modified.png" id="2_0minx"]
 [ext_resource type="Script" path="res://scenes/vache.gd" id="2_sjswn"]
 
 [sub_resource type="Animation" id="Animation_qro8v"]
@@ -15,11 +15,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [5]
 }
 
-[sub_resource type="Animation" id="Animation_5616k"]
+[sub_resource type="Animation" id="Animation_cvsw0"]
 resource_name = "idle"
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -28,13 +29,13 @@ tracks/0/path = NodePath("VacheSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 0.733333),
+"times": PackedFloat32Array(0, 0.6667, 1.3333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_cvsw0"]
+[sub_resource type="Animation" id="Animation_5616k"]
 resource_name = "moving"
 length = 0.7
 loop_mode = 1
@@ -45,7 +46,7 @@ tracks/0/path = NodePath("VacheSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333333),
+"times": PackedFloat32Array(0.1, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [3, 4]
@@ -54,12 +55,15 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v30tp"]
 _data = {
 "RESET": SubResource("Animation_qro8v"),
-"idle": SubResource("Animation_5616k"),
-"moving": SubResource("Animation_cvsw0")
+"idle": SubResource("Animation_cvsw0"),
+"moving": SubResource("Animation_5616k")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sbs"]
 size = Vector2(29, 19)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4arid"]
+radius = 27.0
 
 [node name="Vache" type="CharacterBody2D"]
 position = Vector2(30, 37)
@@ -68,10 +72,12 @@ safe_margin = 0.05
 script = ExtResource("2_sjswn")
 
 [node name="VacheSprite" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -6)
-texture = ExtResource("1_2eh31")
+texture = ExtResource("2_0minx")
 hframes = 3
 vframes = 2
+frame = 5
 
 [node name="VachAnimation" type="AnimationPlayer" parent="VacheSprite"]
 root_node = NodePath("../..")
@@ -79,6 +85,15 @@ libraries = {
 "": SubResource("AnimationLibrary_v30tp")
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="HitBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_q8sbs")
+
+[node name="InfectionZone" type="Area2D" parent="."]
+position = Vector2(0, -1)
+collision_layer = 4
+collision_mask = 4
+
+[node name="InfectionhitBox" type="CollisionShape2D" parent="InfectionZone"]
+shape = SubResource("CircleShape2D_4arid")
+debug_color = Color(0.999793, 0, 0.100958, 0.42)
