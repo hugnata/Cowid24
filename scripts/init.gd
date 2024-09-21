@@ -1,26 +1,41 @@
 extends Node2D
 
 const CAMERA_ZOOM = 2
-var dragging = false
-var click_radius = 32 # Size of the sprite.
+var CLICK_RADIUS = 32 # Size of the sprite.
+var cow_dragged = null
 
 @onready var cow_manager: Node = $"Cow Manager"
+@onready var cows: Node = $Cows
+
+func screen_to_world_pos(pos: Vector2) -> Vector2:
+	return pos/2 
 
 ## Drag'n'drop logic
-#func _input(event):
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		#if (event.position - $Vache.position*CAMERA_ZOOM).length() < click_radius:
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		# Start dragging if the click is on the sprite.
+		if cow_dragged == null and event.pressed:
+			var mouse_world_pos = screen_to_world_pos(event.position)
+			# Best candidate so far to drag & drop
+			var closest_cow = null
+			var min_distance = INF
+			# Find the closest cow to the cursor (must be closer than CLICK_RADIUS)
+			for cow in cows.get_children():
+				var distance = (mouse_world_pos - cow.position).length()
+				if distance < CLICK_RADIUS:
+					if distance < min_distance:
+						closest_cow = cow
+						min_distance = distance
+#			
+			cow_dragged = closest_cow
+				
+		# Stop dragging if the button is released.
+		if cow_dragged and not event.pressed:
+			cow_dragged = null
 #
-			## Start dragging if the click is on the sprite.
-			#if not dragging and event.pressed:
-				#dragging = true
-		## Stop dragging if the button is released.
-		#if dragging and not event.pressed:
-			#dragging = false
-#
-	#if event is InputEventMouseMotion and dragging:
-		## While dragging, move the sprite with the mouse.
-		#$Vache.position = event.position /CAMERA_ZOOM
+	if event is InputEventMouseMotion and cow_dragged != null:
+		# While dragging, move the sprite with the mouse.
+		cow_dragged.position =  screen_to_world_pos(event.position)
 
 
 # Called when the node enters the scene tree for the first time.
