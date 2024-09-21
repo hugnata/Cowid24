@@ -28,6 +28,7 @@ func spawn_cow():
 	var y = randi_range(position.y+COW_SIZE,position.y + size.y  - COW_SIZE)
 	var cow: Node2D = cow_scene.instantiate()
 	cow.set_global_position(Vector2(x,y))
+	cow.enclos=spawning_area
 	cows_node.add_child(cow)
 	
 	

@@ -59,14 +59,16 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sbs"]
-size = Vector2(29, 20)
+size = Vector2(29, 19)
 
 [node name="Vache" type="CharacterBody2D"]
 position = Vector2(30, 37)
+collision_mask = 2
+safe_margin = 0.05
 script = ExtResource("2_sjswn")
 
 [node name="VacheSprite" type="Sprite2D" parent="."]
-position = Vector2(-26, -38)
+position = Vector2(0, -6)
 texture = ExtResource("1_2eh31")
 hframes = 3
 vframes = 2
@@ -78,5 +80,5 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-26, -34)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_q8sbs")

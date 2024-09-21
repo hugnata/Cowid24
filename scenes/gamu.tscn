@@ -5,13 +5,13 @@
 [ext_resource type="Script" path="res://scripts/cow_manager.gd" id="4_c7aa1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrk8v"]
-size = Vector2(184.25, 44.75)
+size = Vector2(168.25, 114)
 
 [node name="gamu" type="Node2D"]
 script = ExtResource("1_hrvy0")
 
 [node name="Map" parent="." instance=ExtResource("3_jycyd")]
-position = Vector2(260, 167)
+position = Vector2(259, 169)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 162)
@@ -20,7 +20,7 @@ zoom = Vector2(2, 2)
 [node name="Cow Pen" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cow Pen"]
-position = Vector2(263.875, 105)
+position = Vector2(255.875, 104)
 shape = SubResource("RectangleShape2D_xrk8v")
 
 [node name="Cow Manager" type="Node" parent="." node_paths=PackedStringArray("spawning_area", "cows_node")]
