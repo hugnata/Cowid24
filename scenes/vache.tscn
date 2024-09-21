@@ -1,70 +1,71 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddxpjlx86dv77"]
+[gd_scene load_steps=7 format=3 uid="uid://ddxpjlx86dv77"]
 
 [ext_resource type="Texture2D" uid="uid://betysxas66av5" path="res://assets/Characters/Free Cow Sprites.png" id="1_2eh31"]
+[ext_resource type="Script" path="res://scenes/vache.gd" id="2_sjswn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_p44yv"]
-atlas = ExtResource("1_2eh31")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_cvsw0"]
+resource_name = "moving"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fnyu"]
-atlas = ExtResource("1_2eh31")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_qro8v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u1qi3"]
-atlas = ExtResource("1_2eh31")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="Animation" id="Animation_5616k"]
+resource_name = "idle"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1y5mv"]
-atlas = ExtResource("1_2eh31")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v30tp"]
+_data = {
+"RESET": SubResource("Animation_qro8v"),
+"idle": SubResource("Animation_5616k"),
+"moving": SubResource("Animation_cvsw0")
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bunyx"]
-atlas = ExtResource("1_2eh31")
-region = Rect2(0, 32, 32, 32)
+[node name="VacheSprite" type="Sprite2D"]
+position = Vector2(30, 37)
+texture = ExtResource("1_2eh31")
+hframes = 3
+vframes = 2
+frame = 3
+script = ExtResource("2_sjswn")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_67svs"]
-atlas = ExtResource("1_2eh31")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e2let"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p44yv")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6fnyu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u1qi3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1y5mv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bunyx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_67svs")
-}],
-"loop": true,
-"name": &"marche",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yajkb"]
-size = Vector2(27, 17)
-
-[node name="Vache" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_e2let")
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-position = Vector2(0.5, 4.5)
-shape = SubResource("RectangleShape2D_yajkb")
+[node name="VachAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_v30tp")
+}

@@ -22,6 +22,7 @@ var click_radius = 32 # Size of the sprite.
 		## While dragging, move the sprite with the mouse.
 		#$Vache.position = event.position /CAMERA_ZOOM
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Hello world !")
