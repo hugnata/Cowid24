@@ -27,15 +27,19 @@ func _input(event):
 						closest_cow = cow
 						min_distance = distance
 #			
-			cow_dragged = closest_cow
+			cow_dragged = closest_cow			
+			if cow_dragged!=null:
+				cow_dragged.stop_moving_madafaka()
 				
 		# Stop dragging if the button is released.
 		if cow_dragged and not event.pressed:
+			cow_dragged.move_ya_ass()
 			cow_dragged = null
 #
 	if event is InputEventMouseMotion and cow_dragged != null:
 		# While dragging, move the sprite with the mouse.
 		cow_dragged.position =  screen_to_world_pos(event.position)
+		
 
 
 # Called when the node enters the scene tree for the first time.
