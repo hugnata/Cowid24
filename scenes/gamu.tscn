@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://8jjmqtfb8eui"]
+[gd_scene load_steps=5 format=3 uid="uid://8jjmqtfb8eui"]
 
 [ext_resource type="Script" path="res://scripts/init.gd" id="1_hrvy0"]
 [ext_resource type="PackedScene" uid="uid://bmv5tx17gjijq" path="res://scenes/map.tscn" id="3_jycyd"]
 [ext_resource type="Script" path="res://scripts/cow_manager.gd" id="4_c7aa1"]
-[ext_resource type="PackedScene" uid="uid://ddxpjlx86dv77" path="res://scenes/vache.tscn" id="4_fhjf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrk8v"]
 size = Vector2(184.25, 44.75)
@@ -30,6 +29,3 @@ spawning_area = NodePath("../Cow Pen/CollisionShape2D")
 cows_node = NodePath("../Cows")
 
 [node name="Cows" type="Node" parent="."]
-
-[node name="Vache" parent="." instance=ExtResource("4_fhjf1")]
-position = Vector2(252, 194)

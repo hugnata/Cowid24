@@ -6,8 +6,6 @@ func _ready() -> void:
 	#$VachAnimation.animation = "idle"
 	$VacheSprite/VachAnimation.play("idle")
 	
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
