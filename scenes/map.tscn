@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=4 uid="uid://bmv5tx17gjijq"]
+[gd_scene load_steps=23 format=4 uid="uid://bmv5tx17gjijq"]
 
 [ext_resource type="Texture2D" uid="uid://ctv0ndihh8deh" path="res://assets/Tilesets/Grass.png" id="1_l023m"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_np72j"]
 [ext_resource type="Texture2D" uid="uid://bsfh2mi30iowe" path="res://assets/Tilesets/Hills.png" id="2_g10ra"]
 [ext_resource type="Texture2D" uid="uid://je7abye4cwur" path="res://assets/Objects/Basic_Grass_Biom_things.png" id="5_a3vs2"]
 [ext_resource type="Texture2D" uid="uid://cgar3hsothpu8" path="res://assets/Objects/Paths.png" id="5_c8id3"]
@@ -93,6 +94,7 @@ texture = ExtResource("1_l023m")
 1:1/0/terrains_peering_bit/top_left_corner = 0
 1:1/0/terrains_peering_bit/top_side = 0
 1:1/0/terrains_peering_bit/top_right_corner = 0
+1:1/0/custom_data_0 = true
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/terrain = 0
@@ -253,21 +255,33 @@ texture = ExtResource("1_l023m")
 8:4/0 = 0
 9:4/0 = 0
 0:5/0 = 0
+0:5/0/custom_data_0 = true
 1:5/0 = 0
+1:5/0/custom_data_0 = true
 2:5/0 = 0
+2:5/0/custom_data_0 = true
 3:5/0 = 0
+3:5/0/custom_data_0 = true
 4:5/0 = 0
+4:5/0/custom_data_0 = true
 5:5/0 = 0
+5:5/0/custom_data_0 = true
 6:5/0 = 0
 7:5/0 = 0
 8:5/0 = 0
 9:5/0 = 0
 0:6/0 = 0
+0:6/0/custom_data_0 = true
 1:6/0 = 0
+1:6/0/custom_data_0 = true
 2:6/0 = 0
+2:6/0/custom_data_0 = true
 3:6/0 = 0
+3:6/0/custom_data_0 = true
 4:6/0 = 0
+4:6/0/custom_data_0 = true
 5:6/0 = 0
+5:6/0/custom_data_0 = true
 6:6/0 = 0
 7:6/0 = 0
 8:6/0 = 0
@@ -346,6 +360,8 @@ texture = ExtResource("2_g10ra")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+custom_data_layer_0/name = "valid_drop_off"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_2yu31")
 sources/1 = SubResource("TileSetAtlasSource_tt3b5")
 
@@ -536,6 +552,7 @@ sources/2 = SubResource("TileSetAtlasSource_5auin")
 sources/0 = SubResource("TileSetAtlasSource_7aejf")
 
 [node name="Map" type="Node2D"]
+script = ExtResource("1_np72j")
 
 [node name="Terrain" type="TileMapLayer" parent="."]
 position = Vector2(-27, 2)

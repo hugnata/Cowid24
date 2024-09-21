@@ -3,9 +3,11 @@ extends Node2D
 const CAMERA_ZOOM = 2
 var CLICK_RADIUS = 32 # Size of the sprite.
 var cow_dragged = null
+var last_valid_position = null
 
 @onready var cow_manager: Node = $"Cow Manager"
 @onready var cows: Node = $Cows
+@onready var map: Node2D = $Map
 
 func screen_to_world_pos(pos: Vector2) -> Vector2:
 	return pos/2 
@@ -29,16 +31,22 @@ func _input(event):
 #			
 			cow_dragged = closest_cow			
 			if cow_dragged!=null:
+				last_valid_position = cow_dragged.position
 				cow_dragged.stop_moving_madafaka()
 				
 		# Stop dragging if the button is released.
 		if cow_dragged and not event.pressed:
+			cow_dragged.position = last_valid_position
 			cow_dragged.move_ya_ass()
 			cow_dragged = null
+			last_valid_position = null
 #
 	if event is InputEventMouseMotion and cow_dragged != null:
 		# While dragging, move the sprite with the mouse.
 		cow_dragged.position =  screen_to_world_pos(event.position)
+		if map.is_viable_drop_location(cow_dragged.position):
+			last_valid_position = cow_dragged.position
+			
 		
 
 
