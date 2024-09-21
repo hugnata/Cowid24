@@ -1,13 +1,17 @@
 extends Node2D
 
+@onready var cow_manager: Node = $"Cow Manager"
+@onready var cows: Node = $Cows
+@onready var map: Node2D = $Map
+@onready var ui: Control = $UI
+
+const VACCINE_DEVELOPMENT_TIME = 1 * 60 # Set to 3 minutes by default
+
 const CAMERA_ZOOM = 2
 var CLICK_RADIUS = 32 # Size of the sprite.
 var cow_dragged = null
 var last_valid_position = null
-
-@onready var cow_manager: Node = $"Cow Manager"
-@onready var cows: Node = $Cows
-@onready var map: Node2D = $Map
+var time_elapsed = 0
 
 func screen_to_world_pos(pos: Vector2) -> Vector2:
 	return pos/2 
@@ -67,8 +71,13 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Hello world !")
-	cow_manager.spawn_cows(20)
+	cow_manager.spawn_cows(5)
+	ui.update_number_of_cows(5)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	time_elapsed += delta
+	var progression = 100*time_elapsed/ VACCINE_DEVELOPMENT_TIME
+	progression = min(progression, 100)
+	ui.update_vaccine_progression(progression)
+	ui.update_number_contaminated(int(progression*5/100))

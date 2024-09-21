@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpww33ytyeckw"]
+
+[ext_resource type="FontFile" uid="uid://bc5ixuukrxyle" path="res://assets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/Peaberry-Base.otf" id="1_2dghh"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_dlxrs"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dlxrs")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 43.0
+offset_right = 171.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("1_2dghh")
+
+[node name="Progress" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 23.0
+offset_right = 167.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_2dghh")
+theme_override_font_sizes/font_size = 16
+text = "Vaccine Progress"
+horizontal_alignment = 1
+
+[node name="Contamination data" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 17.0
+offset_top = 108.0
+offset_right = 57.0
+offset_bottom = 148.0
+
+[node name="Contaminated cows" type="Label" parent="Contamination data"]
+offset_left = 75.0
+offset_top = -22.0
+offset_right = 153.0
+offset_bottom = -5.0
+theme_override_fonts/font = ExtResource("1_2dghh")
+theme_override_font_sizes/font_size = 16
+text = "infected"
+autowrap_mode = 2
+
+[node name="nb contaminated" type="Label" parent="Contamination data"]
+offset_left = -17.0
+offset_top = -21.0
+offset_right = 44.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("1_2dghh")
+theme_override_font_sizes/font_size = 16
+text = "10"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="separator" type="Label" parent="Contamination data"]
+offset_left = 45.0
+offset_top = -20.0
+offset_right = 53.0
+offset_bottom = -3.0
+theme_override_fonts/font = ExtResource("1_2dghh")
+theme_override_font_sizes/font_size = 16
+text = "/"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="nb cows" type="Label" parent="Contamination data"]
+offset_left = 54.0
+offset_top = -21.0
+offset_right = 115.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("1_2dghh")
+theme_override_font_sizes/font_size = 16
+text = "10"
+autowrap_mode = 2
+
+[node name="cows" type="Label" parent="Contamination data"]
+offset_left = 42.0
+offset_top = -5.0
+offset_right = 120.0
+offset_bottom = 12.0
+theme_override_fonts/font = ExtResource("1_2dghh")
+theme_override_font_sizes/font_size = 16
+text = "cows"
+horizontal_alignment = 1
+autowrap_mode = 2
