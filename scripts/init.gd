@@ -71,13 +71,19 @@ func _input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Hello world !")
-	cow_manager.spawn_cows(20)
-	ui.update_number_of_cows(20)
+
+	cow_manager.spawn_cows(5)
+	ui.update_number_of_cows(5)
+	cow_manager.start_infection()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_elapsed += delta
+	update_ui()
+
+func update_ui():
 	var progression = 100*time_elapsed/ VACCINE_DEVELOPMENT_TIME
 	progression = min(progression, 100)
 	ui.update_vaccine_progression(progression)
-	ui.update_number_contaminated(int(progression*5/100))
+	ui.update_number_contaminated(cow_manager.get_number_infected())
+	

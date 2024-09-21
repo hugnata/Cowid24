@@ -21,7 +21,7 @@ zoom = Vector2(2, 2)
 [node name="Cow Pen" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cow Pen"]
-position = Vector2(250, 100)
+position = Vector2(210, 150)
 shape = SubResource("RectangleShape2D_xrk8v")
 
 [node name="Cow Manager" type="Node" parent="." node_paths=PackedStringArray("spawning_area", "cows_node")]
