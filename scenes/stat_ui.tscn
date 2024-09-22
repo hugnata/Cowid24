@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpww33ytyeckw"]
+[gd_scene load_steps=3 format=3 uid="uid://lpktbkrksxwa"]
 
 [ext_resource type="FontFile" uid="uid://bc5ixuukrxyle" path="res://assets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/Peaberry-Base.otf" id="1_2dghh"]
 [ext_resource type="Script" path="res://scripts/stat_ui.gd" id="1_dlxrs"]

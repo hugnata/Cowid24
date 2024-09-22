@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://i382dibjid38" path="res://assets/Characters/Free Cow Sprites - Both mode.png" id="2_aqcyo"]
 [ext_resource type="Script" path="res://scenes/vache.gd" id="2_sjswn"]
-[ext_resource type="Texture2D" uid="uid://b6mhsj1m181h3" path="res://assets/Effects/prout_big.png" id="3_ulg1y"]
+[ext_resource type="Texture2D" uid="uid://bgswat2ux6gt0" path="res://assets/Effects/prout.png" id="3_bds3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sbs"]
 size = Vector2(28, 18)
@@ -99,36 +99,36 @@ _data = {
 "moving_sick": SubResource("Animation_oaqii")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwq5l"]
-atlas = ExtResource("3_ulg1y")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfaej"]
+atlas = ExtResource("3_bds3t")
+region = Rect2(4, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_j02qf"]
-atlas = ExtResource("3_ulg1y")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2dvb"]
+atlas = ExtResource("3_bds3t")
+region = Rect2(19, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aam6r"]
-atlas = ExtResource("3_ulg1y")
-region = Rect2(32, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncmhu"]
+atlas = ExtResource("3_bds3t")
+region = Rect2(34, 0, 15, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fglio"]
-atlas = ExtResource("3_ulg1y")
-region = Rect2(48, 0, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk55j"]
+atlas = ExtResource("3_bds3t")
+region = Rect2(49, 0, 15, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ke0v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bwq5l")
+"texture": SubResource("AtlasTexture_gfaej")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_j02qf")
+"texture": SubResource("AtlasTexture_n2dvb")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_ncmhu")
 }, {
 "duration": 1.5,
-"texture": SubResource("AtlasTexture_aam6r")
-}, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_fglio")
+"texture": SubResource("AtlasTexture_sk55j")
 }],
 "loop": false,
 "name": &"fart",
