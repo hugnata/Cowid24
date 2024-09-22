@@ -1,13 +1,13 @@
-[gd_scene load_steps=16 format=4 uid="uid://bmv5tx17gjijq"]
+[gd_scene load_steps=16 format=4 uid="uid://b74bg2tplxcuv"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_np72j"]
-[ext_resource type="TileSet" uid="uid://dupv858r6prxa" path="res://assets/Tilesets/tileset_godot.tres" id="2_jcxvx"]
+[ext_resource type="TileSet" uid="uid://ddk2rrpooi2xc" path="res://assets/Tilesets/tileset_godot.tres" id="2_jcxvx"]
 [ext_resource type="Texture2D" uid="uid://je7abye4cwur" path="res://assets/Objects/Basic_Grass_Biom_things.png" id="5_a3vs2"]
 [ext_resource type="Texture2D" uid="uid://cgar3hsothpu8" path="res://assets/Objects/Paths.png" id="5_c8id3"]
 [ext_resource type="Texture2D" uid="uid://barune8504cou" path="res://assets/Objects/Wood_Bridge.png" id="5_i3elg"]
 [ext_resource type="Texture2D" uid="uid://cu3h2nnnurxdy" path="res://assets/Objects/Basic_Furniture.png" id="6_h0fc0"]
 [ext_resource type="Texture2D" uid="uid://c8n661k3sifkc" path="res://assets/Objects/Basic_Plants.png" id="7_vxgb2"]
-[ext_resource type="TileSet" uid="uid://dbqqh2wwixn6f" path="res://assets/Tilesets/fence_tileset.tres" id="8_ciut8"]
+[ext_resource type="TileSet" uid="uid://btosll51rvh0r" path="res://assets/Tilesets/fence_tileset.tres" id="8_ciut8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrmdx"]
 texture = ExtResource("5_a3vs2")
@@ -154,7 +154,6 @@ sources/4 = SubResource("TileSetAtlasSource_cwhsr")
 size = Vector2(84.5315, 101.5)
 
 [node name="Level" type="Node2D"]
-position = Vector2(260, 160)
 script = ExtResource("1_np72j")
 
 [node name="Terrain" type="TileMapLayer" parent="."]

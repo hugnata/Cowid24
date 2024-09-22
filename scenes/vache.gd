@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var rng = RandomNumberGenerator.new()
 @onready var hit_box: CollisionShape2D = $HitBox
-
+@export var avg_time_sec_between_farts_when_healthy_sec=20
 
 enum MovingState{STATIC,MOVING}
 enum HealthState{HEALTHY=0,CONTAMINATED=1,SICK=2,IMMUNIZED=3}
@@ -27,6 +27,13 @@ func _ready() -> void:
 	velocity = Vector2.ZERO
 	
 func _process(delta: float) -> void:
+	
+	var chance_2_fart=1.0/avg_time_sec_between_farts_when_healthy_sec*delta
+	
+	if rng.randf()<chance_2_fart:
+		print("Healthy fart")
+		fart()
+	
 	infects_other(delta)
 	progress_desease(delta)
 	update_animation()
@@ -60,7 +67,7 @@ func progress_desease(delta: float,force_new_health_state =-1):
 			print("Now SICK")
 			
 		HealthState.SICK:
-			m_sickness_timer=rng.randf_range(10,15)
+			m_sickness_timer=rng.randf_range(3,6)
 			m_infection_timer=INF
 			m_health_state=HealthState.IMMUNIZED
 			print("Now IMMUNIZED")
@@ -78,6 +85,7 @@ func infects_other(delta: float):
 		return
 	
 	fart()
+	
 	match m_health_state:
 		HealthState.CONTAMINATED:
 			m_infection_timer=rng.randf_range(5,10)
