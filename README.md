@@ -26,20 +26,21 @@ TODO:
 	- [X] Désactiver collision quand Drag'n'Drop
 - [X] Mouvement des personnes (IA)
 - [X] État interne des personnes
-- [ ] Cycle malade
+- [X] Cycle malade
 	- [X] Créer spritesheet prout
-	- [ ] Créer spritesheet vache malade
+	- [X] Créer spritesheet vache malade
 	- [X] Syncroniser pet avec infection
-	- [ ] Rajouter son pet
 - [ ] Son
+	- [ ] Rajouter son pet
 	- [ ] Trouver une musique d'ambiance
 	- [ ] Musique adaptative avec infection
-- [ ] Système pour le compte des malades et le seuil
+- [X] Système pour le compte des malades et le seuil
 	- [X] Afficher le nombre de vaches infectées
 	- [X] Afficher le nombre de vache a ne pas dépasser
 - [X] Système de contamination
-- [ ] Ajouter un mécanisme pour modifier la contagiosité d'une vache
-- [ ] Visuel pour la page steam
+- [X] Ajouter un mécanisme pour modifier la contagiosité d'une vache
+- [X] Visuel pour la page steam
 - [X] Système de niveau
 - [X] Boucle de jeu (Game over/Win)
 - [X] Menu
+- [ ] Multiple spawn areas
