@@ -1,5 +1,10 @@
 extends Node2D
 
+# Level parameters 
+@export var nb_spawned_cows: int = 20
+@export var vaccine_dev_time: int = 1 * 60 # 1 Minute by default
+@export var max_infected_cows: int = 10
+
 @onready var terrain: TileMapLayer = $Terrain
 @onready var cow_pen: Area2D = $"Cow Pen"
 

@@ -3,14 +3,21 @@ extends Control
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var nb_cows_label: Label = $"Contamination data/nb cows"
 @onready var nb_contaminated_label: Label = $"Contamination data/nb contaminated"
+@onready var goal_label: Label = $"Contamination data/goal"
 
 var nb_cows = 0
+var goal = 0
+
 func update_vaccine_progression(progression: int) -> void:
 	progress_bar.set_value(progression)
 	
 func update_number_of_cows(nb: int) -> void:
 	nb_cows = nb
 	nb_cows_label.text = str(nb)
+	
+func update_goal(nb: int) -> void:
+	goal = nb
+	goal_label.text = str(nb)
 	
 func update_number_contaminated(nb: int) -> void:
 	nb_contaminated_label.text = str(nb)

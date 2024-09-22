@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://8jjmqtfb8eui"]
+[gd_scene load_steps=7 format=3 uid="uid://8jjmqtfb8eui"]
 
 [ext_resource type="Script" path="res://scripts/init.gd" id="1_hrvy0"]
+[ext_resource type="PackedScene" uid="uid://duevikq8j2o06" path="res://scenes/main_ui.tscn" id="2_8r7cq"]
+[ext_resource type="PackedScene" uid="uid://85fgpv02k41f" path="res://scenes/level_1.tscn" id="3_uaw6w"]
 [ext_resource type="Script" path="res://scripts/cow_manager.gd" id="4_c7aa1"]
-[ext_resource type="PackedScene" uid="uid://bpww33ytyeckw" path="res://scenes/ui.tscn" id="4_drocm"]
+[ext_resource type="PackedScene" uid="uid://bmv5tx17gjijq" path="res://scenes/level.tscn" id="4_drgpo"]
+[ext_resource type="PackedScene" uid="uid://bpww33ytyeckw" path="res://scenes/stat_ui.tscn" id="4_drocm"]
 
 [node name="gamu" type="Node2D"]
 script = ExtResource("1_hrvy0")
+levels = Array[Resource]([ExtResource("3_uaw6w"), ExtResource("4_drgpo"), null])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 162)
@@ -17,8 +21,21 @@ cows_node = NodePath("../Cows")
 
 [node name="Cows" type="Node" parent="."]
 
-[node name="UI" parent="." instance=ExtResource("4_drocm")]
+[node name="StatUI" parent="." instance=ExtResource("4_drocm")]
 offset_left = 387.0
 offset_top = -5.0
 offset_right = 387.0
 offset_bottom = -5.0
+
+[node name="MainUi" parent="." instance=ExtResource("2_8r7cq")]
+visible = false
+z_index = 4
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -4.0
+offset_top = -24.0
+offset_right = -4.0
+offset_bottom = -24.0
+grow_horizontal = 1
+grow_vertical = 1

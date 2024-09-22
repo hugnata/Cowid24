@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpww33ytyeckw"]
 
 [ext_resource type="FontFile" uid="uid://bc5ixuukrxyle" path="res://assets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/Peaberry-Base.otf" id="1_2dghh"]
-[ext_resource type="Script" path="res://scripts/ui.gd" id="1_dlxrs"]
+[ext_resource type="Script" path="res://scripts/stat_ui.gd" id="1_dlxrs"]
 
-[node name="UI" type="Control"]
+[node name="StatUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,6 +73,18 @@ text = "/"
 horizontal_alignment = 2
 autowrap_mode = 2
 
+[node name="goal" type="Label" parent="Contamination data"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(1, 0.843137, 0, 1)
+theme_override_fonts/font = ExtResource("1_2dghh")
+theme_override_font_sizes/font_size = 16
+text = "10"
+autowrap_mode = 2
+
 [node name="nb cows" type="Label" parent="Contamination data"]
 layout_mode = 0
 offset_left = 54.0
@@ -94,4 +106,16 @@ theme_override_fonts/font = ExtResource("1_2dghh")
 theme_override_font_sizes/font_size = 16
 text = "cows"
 horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="cows" type="Label" parent="Contamination data/cows"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = 21.0
+offset_right = 77.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("1_2dghh")
+theme_override_font_sizes/font_size = 16
+text = "Stay below "
+horizontal_alignment = 2
 autowrap_mode = 2
