@@ -91,6 +91,13 @@ func infects_other(delta: float):
 			infections_area.get_parent().set_health_state(HealthState.CONTAMINATED)
 	
 func update_animation():
+	match m_moving_state:
+		MovingState.STATIC:
+			m_animation_cycle.play("idle")
+		MovingState.MOVING:
+			m_animation_cycle.play("moving")
+	
+func update_animation_debug():
 	if m_health_state==HealthState.HEALTHY or m_health_state==HealthState.IMMUNIZED:
 		match m_moving_state:
 			MovingState.STATIC:
