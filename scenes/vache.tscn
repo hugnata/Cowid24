@@ -1,6 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://ddxpjlx86dv77"]
+[gd_scene load_steps=17 format=3 uid="uid://ddxpjlx86dv77"]
 
-[ext_resource type="Texture2D" uid="uid://dbmaq1k6ecoto" path="res://assets/Characters/Free_Cow_Sprites_-_Modified.png" id="2_0minx"]
+[ext_resource type="Texture2D" uid="uid://i382dibjid38" path="res://assets/Characters/Free Cow Sprites - Both mode.png" id="2_aqcyo"]
 [ext_resource type="Script" path="res://scenes/vache.gd" id="2_sjswn"]
 [ext_resource type="Texture2D" uid="uid://bgswat2ux6gt0" path="res://assets/Effects/prout.png" id="3_bds3t"]
 
@@ -56,8 +56,10 @@ tracks/0/keys = {
 "values": [3, 4]
 }
 
-[sub_resource type="Animation" id="Animation_wqqpx"]
-resource_name = "sick"
+[sub_resource type="Animation" id="Animation_oaqii"]
+resource_name = "moving_sick"
+length = 0.7
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,18 +67,36 @@ tracks/0/path = NodePath("VacheSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [5]
+"values": [9, 10]
+}
+
+[sub_resource type="Animation" id="Animation_078ov"]
+resource_name = "moving_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VacheSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6667, 1.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v30tp"]
 _data = {
 "RESET": SubResource("Animation_qro8v"),
 "idle": SubResource("Animation_cvsw0"),
+"idle_sick": SubResource("Animation_078ov"),
 "moving": SubResource("Animation_5616k"),
-"sick": SubResource("Animation_wqqpx")
+"moving_sick": SubResource("Animation_oaqii")
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gfaej"]
@@ -133,9 +153,9 @@ shape = SubResource("RectangleShape2D_q8sbs")
 [node name="VacheSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -6)
-texture = ExtResource("2_0minx")
+texture = ExtResource("2_aqcyo")
 hframes = 3
-vframes = 2
+vframes = 4
 frame = 5
 
 [node name="VachAnimation" type="AnimationPlayer" parent="VacheSprite"]
