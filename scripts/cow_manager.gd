@@ -51,8 +51,8 @@ func infect_patient_zero():
 	)
 	if healthy_cows.size() == 0:
 		return
-	var the_chosen_one = healthy_cows.pick_random()
-	the_chosen_one.set_health_state(Cow.HealthState.CONTAMINATED)
+	var the_chosen_although_unlucky_one = healthy_cows.pick_random()
+	the_chosen_although_unlucky_one.set_health_state(Cow.HealthState.CONTAMINATED)
 	
 func get_number_infected() -> int:
 	return cows_node.get_children().filter(

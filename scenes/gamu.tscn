@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/init.gd" id="1_hrvy0"]
 [ext_resource type="PackedScene" uid="uid://bmv5tx17gjijq" path="res://scenes/map.tscn" id="3_jycyd"]
 [ext_resource type="Script" path="res://scripts/cow_manager.gd" id="4_c7aa1"]
-[ext_resource type="PackedScene" path="res://scenes/ui.tscn" id="4_drocm"]
+[ext_resource type="PackedScene" uid="uid://bpww33ytyeckw" path="res://scenes/ui.tscn" id="4_drocm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrk8v"]
 size = Vector2(123.063, 255)
