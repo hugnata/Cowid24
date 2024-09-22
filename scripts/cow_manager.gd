@@ -47,7 +47,7 @@ func infect_patient_zero():
 	if get_number_infected() > 0:
 		return
 	var healthy_cows : Array = cows_node.get_children().filter(
-		 func(cow) : return cow.get_state() == Cow.HealthState.HEALTHY
+		 func(cow) : return (cow.get_state() == Cow.HealthState.HEALTHY)
 	)
 	if healthy_cows.size() == 0:
 		return
@@ -57,5 +57,6 @@ func infect_patient_zero():
 
 func get_number_infected() -> int:
 	return cows_node.get_children().filter(
-		func(cow) : return cow.get_state() != Cow.HealthState.HEALTHY
+		func(cow) : return (cow.get_state() == Cow.HealthState.CONTAMINATED ||
+							cow.get_state() == Cow.HealthState.SICK)
 	).size()
