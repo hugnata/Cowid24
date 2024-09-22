@@ -1,7 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddxpjlx86dv77"]
+[gd_scene load_steps=16 format=3 uid="uid://ddxpjlx86dv77"]
 
 [ext_resource type="Texture2D" uid="uid://dbmaq1k6ecoto" path="res://assets/Characters/Free_Cow_Sprites_-_Modified.png" id="2_0minx"]
 [ext_resource type="Script" path="res://scenes/vache.gd" id="2_sjswn"]
+[ext_resource type="Texture2D" uid="uid://bgswat2ux6gt0" path="res://assets/Effects/prout.png" id="3_bds3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sbs"]
+size = Vector2(28, 18)
 
 [sub_resource type="Animation" id="Animation_qro8v"]
 length = 0.001
@@ -75,17 +79,54 @@ _data = {
 "sick": SubResource("Animation_wqqpx")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sbs"]
-size = Vector2(29, 19)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfaej"]
+atlas = ExtResource("3_bds3t")
+region = Rect2(4, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2dvb"]
+atlas = ExtResource("3_bds3t")
+region = Rect2(19, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncmhu"]
+atlas = ExtResource("3_bds3t")
+region = Rect2(34, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk55j"]
+atlas = ExtResource("3_bds3t")
+region = Rect2(49, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ke0v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfaej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2dvb")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_ncmhu")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_sk55j")
+}],
+"loop": false,
+"name": &"fart",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4arid"]
-radius = 27.0
+radius = 21.0238
 
 [node name="Vache" type="CharacterBody2D"]
-position = Vector2(30, 37)
+position = Vector2(28, 31)
 collision_mask = 2
 safe_margin = 0.05
 script = ExtResource("2_sjswn")
+
+[node name="HitBox" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_q8sbs")
 
 [node name="VacheSprite" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -101,12 +142,15 @@ libraries = {
 "": SubResource("AnimationLibrary_v30tp")
 }
 
-[node name="HitBox" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
-shape = SubResource("RectangleShape2D_q8sbs")
+[node name="Fart" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-17, 1)
+sprite_frames = SubResource("SpriteFrames_2ke0v")
+animation = &"fart"
+frame = 3
+frame_progress = 1.0
 
 [node name="InfectionZone" type="Area2D" parent="."]
-position = Vector2(0, -1)
 collision_layer = 4
 collision_mask = 4
 

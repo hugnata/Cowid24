@@ -2,8 +2,10 @@ extends Node2D
 
 @onready var cow_manager: Node = $"Cow Manager"
 @onready var cows: Node = $Cows
-@onready var map: Node2D = $Map
+@onready var map: Node2D = $Level
 @onready var ui: Control = $UI
+
+@export var spawned_cow=20
 
 const VACCINE_DEVELOPMENT_TIME = 1 * 60 # Set to 3 minutes by default
 
@@ -76,8 +78,8 @@ func _input(event):
 func _ready() -> void:
 	print("Hello world !")
 
-	cow_manager.spawn_cows(5)
-	ui.update_number_of_cows(5)
+	cow_manager.spawn_cows(spawned_cow)
+	ui.update_number_of_cows(spawned_cow)
 	cow_manager.start_infection()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -21,6 +21,8 @@ var m_animation_cycle:AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	m_animation_cycle=$VacheSprite/VachAnimation
+	$Fart.connect("animation_finished",func (): $Fart.visible=false)
+	$Fart.visible=false
 	m_animation_cycle.play("moving")
 	velocity = Vector2.ZERO
 	
@@ -75,6 +77,7 @@ func infects_other(delta: float):
 	if m_health_state==HealthState.HEALTHY:
 		return
 	
+	fart()
 	match m_health_state:
 		HealthState.CONTAMINATED:
 			m_infection_timer=rng.randf_range(5,10)
@@ -82,7 +85,13 @@ func infects_other(delta: float):
 		HealthState.SICK:
 			m_infection_timer=rng.randf_range(2,4)
 			print("Infecting")
-			
+
+func fart():
+	if $Fart.visible:
+		return
+	$Fart.visible=true
+	$Fart.play("fart")
+
 	#Infection
 	var infections_areas: Array[Area2D]=$InfectionZone.get_overlapping_areas()
 	if infections_areas.is_empty():
@@ -115,9 +124,11 @@ func change_moving_state():
 			m_moving_state=MovingState.MOVING
 			m_move_timer=rng.randf_range(1,3)
 			m_animation_cycle.play("moving")
-			m_animation_cycle
 			velocity=Vector2(rng.randf_range(-1,1),rng.randf_range(-1,1)).normalized()*SPEED
 			$VacheSprite.flip_h=velocity.x<=0
+			$Fart.flip_h=velocity.x<=0
+			$Fart.position.x= abs($Fart.position.x)* (1 if velocity.x<=0 else -1)
+			#print($Fart.position.x)
 		MovingState.MOVING:
 			m_moving_state=MovingState.STATIC
 			m_move_timer=rng.randf_range(1,11)
