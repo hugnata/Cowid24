@@ -1,0 +1,248 @@
+[gd_scene load_steps=15 format=3 uid="uid://dmsaxvrsm62uy"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_7wuu5"]
+[ext_resource type="FontFile" uid="uid://bc5ixuukrxyle" path="res://assets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/Peaberry-Base.otf" id="1_u1eni"]
+[ext_resource type="Texture2D" uid="uid://betysxas66av5" path="res://assets/Characters/Free Cow Sprites.png" id="2_tx1j1"]
+[ext_resource type="Texture2D" uid="uid://d2viji0rhh2em" path="res://assets/UI/mouse.png" id="3_bh4py"]
+[ext_resource type="Texture2D" uid="uid://bgswat2ux6gt0" path="res://assets/Effects/prout.png" id="4_oi0w8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnrsc"]
+atlas = ExtResource("2_tx1j1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smxao"]
+atlas = ExtResource("2_tx1j1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0wfo"]
+atlas = ExtResource("2_tx1j1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v4ott"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnrsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smxao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0wfo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfaej"]
+atlas = ExtResource("4_oi0w8")
+region = Rect2(4, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2dvb"]
+atlas = ExtResource("4_oi0w8")
+region = Rect2(19, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncmhu"]
+atlas = ExtResource("4_oi0w8")
+region = Rect2(34, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk55j"]
+atlas = ExtResource("4_oi0w8")
+region = Rect2(49, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sksu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfaej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2dvb")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_ncmhu")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_sk55j")
+}],
+"loop": true,
+"name": &"fart",
+"speed": 5.0
+}]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_7wuu5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -424.0
+offset_top = -185.0
+offset_right = 472.0
+offset_bottom = -144.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "Move your cows to avoid the spread of the epidemic"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -450.0
+offset_top = -255.0
+offset_right = 494.0
+offset_bottom = -191.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 64
+text = "Cowid 24: Flatten the curve"
+
+[node name="DragNDrop" type="Node" parent="."]
+
+[node name="Label3" type="Label" parent="DragNDrop"]
+offset_left = -566.0
+offset_top = 120.0
+offset_right = -222.0
+offset_bottom = 187.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "Drag'n'drop a cow to move it"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Drag1" type="AnimatedSprite2D" parent="DragNDrop"]
+position = Vector2(-461, 49)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_v4ott")
+
+[node name="Mouse" type="Sprite2D" parent="DragNDrop"]
+position = Vector2(-380, 3)
+scale = Vector2(3, 3)
+texture = ExtResource("3_bh4py")
+
+[node name="Drag2" type="AnimatedSprite2D" parent="DragNDrop"]
+position = Vector2(-320, -89)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_v4ott")
+
+[node name="Fart" type="Node" parent="."]
+
+[node name="Label4" type="Label" parent="Fart"]
+offset_left = -251.0
+offset_top = 121.0
+offset_right = 202.0
+offset_bottom = 223.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "Infected cows fart, infecting nearby cows"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Cow" type="AnimatedSprite2D" parent="Fart"]
+position = Vector2(-8, -20)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_v4ott")
+
+[node name="Fart" type="AnimatedSprite2D" parent="Fart/Cow"]
+position = Vector2(-14.5, 8)
+sprite_frames = SubResource("SpriteFrames_1sksu")
+animation = &"fart"
+autoplay = "fart"
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = -139.0
+offset_top = 227.0
+offset_right = 139.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="Win" type="Node" parent="."]
+
+[node name="Label4" type="Label" parent="Win"]
+offset_left = 214.0
+offset_top = 114.0
+offset_right = 552.0
+offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "Contain the epidemic until a vaccine is found!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="Win"]
+offset_left = 250.0
+offset_top = -69.0
+offset_right = 538.0
+offset_bottom = -33.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+value = 75.0
+
+[node name="Progress" type="Label" parent="Win"]
+offset_left = 243.0
+offset_top = -112.0
+offset_right = 539.0
+offset_bottom = -80.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "Vaccine Progress"
+horizontal_alignment = 1
+
+[node name="Contamination data" type="Control" parent="Win"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 238.0
+offset_top = 62.0
+offset_right = 278.0
+offset_bottom = 102.0
+
+[node name="Contaminated cows" type="Label" parent="Win/Contamination data"]
+layout_mode = 0
+offset_left = 87.0
+offset_top = -81.0
+offset_right = 329.0
+offset_bottom = -49.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "infected cows"
+autowrap_mode = 2
+
+[node name="nb contaminated" type="Label" parent="Win/Contamination data"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -83.0
+offset_right = 26.0
+offset_bottom = -51.0
+theme_override_colors/font_color = Color(1, 0.270588, 0, 1)
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "9"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="nb cows" type="Label" parent="Win/Contamination data"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = -82.0
+offset_right = 89.0
+offset_bottom = -50.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "/20"
+autowrap_mode = 2
+
+[node name="cows2" type="Label" parent="Win/Contamination data"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.199
+anchor_right = 0.5
+anchor_bottom = 0.199
+offset_left = -29.0
+offset_top = -41.96
+offset_right = 311.0
+offset_bottom = 8.04
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 32
+text = "Stay below 12 !"
+horizontal_alignment = 1
+autowrap_mode = 2

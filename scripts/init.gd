@@ -2,18 +2,44 @@ extends Node2D
 
 @onready var cow_manager: Node = $"Cow Manager"
 @onready var cows: Node = $Cows
-@onready var map: Node2D = $Level
 @onready var ui: Control = $UI
 
 @export var spawned_cow=20
 
 const VACCINE_DEVELOPMENT_TIME = 1 * 60 # Set to 3 minutes by default
-
 const CAMERA_ZOOM = 2
+
+var map: Node2D # The current level
 var CLICK_RADIUS = 32 # Size of the sprite.
 var cow_dragged = null
 var last_valid_position = null
 var time_elapsed = 0
+
+func load_level(level_path: String):
+	# Reset all level variables
+	cow_dragged = null
+	last_valid_position = null
+	time_elapsed = 0
+	# Load the new scene
+	var level_scene = load(level_path)
+	var level = level_scene.instantiate()
+	self.add_child(level)
+	map = level
+	cow_manager.spawn_cows(map, spawned_cow)
+	ui.update_number_of_cows(spawned_cow)
+	cow_manager.start_infection()
+	
+func clean_level():
+	# Todo create a small transition to hide the depop
+	# Remove all cows
+	for cow in cows.get_children():
+		cow.queue_free()
+	self.remove_child(map)
+	map = null
+	
+func switch_to_level(level_path: String):
+	clean_level()
+	load_level(level_path)
 
 func screen_to_world_pos(pos: Vector2) -> Vector2:
 	return pos/2 
@@ -76,16 +102,14 @@ func _input(event):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Hello world !")
-
-	cow_manager.spawn_cows(spawned_cow)
-	ui.update_number_of_cows(spawned_cow)
-	cow_manager.start_infection()
+	load_level("res://scenes/level_1.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_elapsed += delta
 	update_ui()
+	if time_elapsed > VACCINE_DEVELOPMENT_TIME:
+		switch_to_level("res://scenes/level.tscn")
 
 func update_ui():
 	var progression = 100*time_elapsed/ VACCINE_DEVELOPMENT_TIME

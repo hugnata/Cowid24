@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://8jjmqtfb8eui"]
+[gd_scene load_steps=4 format=3 uid="uid://8jjmqtfb8eui"]
 
 [ext_resource type="Script" path="res://scripts/init.gd" id="1_hrvy0"]
 [ext_resource type="Script" path="res://scripts/cow_manager.gd" id="4_c7aa1"]
-[ext_resource type="PackedScene" uid="uid://b74bg2tplxcuv" path="res://scenes/level.tscn" id="4_drgpo"]
 [ext_resource type="PackedScene" uid="uid://bpww33ytyeckw" path="res://scenes/ui.tscn" id="4_drocm"]
 
 [node name="gamu" type="Node2D"]
@@ -12,12 +11,8 @@ script = ExtResource("1_hrvy0")
 position = Vector2(288, 162)
 zoom = Vector2(2, 2)
 
-[node name="Level" parent="." instance=ExtResource("4_drgpo")]
-position = Vector2(260, 167)
-
-[node name="Cow Manager" type="Node" parent="." node_paths=PackedStringArray("map", "cows_node")]
+[node name="Cow Manager" type="Node" parent="." node_paths=PackedStringArray("cows_node")]
 script = ExtResource("4_c7aa1")
-map = NodePath("../Level")
 cows_node = NodePath("../Cows")
 
 [node name="Cows" type="Node" parent="."]
