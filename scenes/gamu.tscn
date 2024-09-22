@@ -13,6 +13,7 @@ position = Vector2(288, 162)
 zoom = Vector2(2, 2)
 
 [node name="Level" parent="." instance=ExtResource("4_drgpo")]
+position = Vector2(260, 167)
 
 [node name="Cow Manager" type="Node" parent="." node_paths=PackedStringArray("map", "cows_node")]
 script = ExtResource("4_c7aa1")
