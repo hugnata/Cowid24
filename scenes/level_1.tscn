@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=4 uid="uid://85fgpv02k41f"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_3kux4"]
-[ext_resource type="TileSet" uid="uid://dupv858r6prxa" path="res://assets/Tilesets/tileset_godot.tres" id="1_xfh57"]
-[ext_resource type="TileSet" uid="uid://dbqqh2wwixn6f" path="res://assets/Tilesets/fence_tileset.tres" id="2_74ot5"]
+[ext_resource type="TileSet" uid="uid://ddk2rrpooi2xc" path="res://assets/Tilesets/tileset_godot.tres" id="1_xfh57"]
+[ext_resource type="TileSet" uid="uid://btosll51rvh0r" path="res://assets/Tilesets/fence_tileset.tres" id="2_74ot5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6tug"]
 size = Vector2(96.5315, 64.5)
