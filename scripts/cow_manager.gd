@@ -5,7 +5,7 @@ const Cow = preload("res://scenes/vache.gd")
 # The approximated cow size, in pixels (to ensure that cow do no spawn on fences)
 @export var COW_SIZE = 20
 # The area the cow will spawn in. The shape of the CollisionShape2D must be a rectangle
-@export var spawning_area : CollisionShape2D 
+@export var map : Node2D
 # The node that will contain all the cow as childrens
 @export var cows_node : Node
 
@@ -14,7 +14,7 @@ const Cow = preload("res://scenes/vache.gd")
 var m_timer_check_sick_cows:Timer = Timer.new()
 
 func _ready() -> void:
-	assert(spawning_area.shape.get_class()=="RectangleShape2D" && 
+	assert(map.get_spawn_area().shape.get_class()=="RectangleShape2D" && 
 	"The cow manager script only handles Rectangle Spawning Area for now")
 	assert(cows_node != null && "You must provide a node to contains the cows !")
 	
@@ -33,8 +33,9 @@ func spawn_cows(number: int):
 func spawn_cow():
 	print("Hello, I'm a cow ")
 	var cow_scene = preload("res://scenes/vache.tscn")
-	var spawning_rectangle : Rect2 = spawning_area.shape.get_rect()
-	var position = spawning_area.get_global_transform().get_origin() + spawning_rectangle.position
+	var spawn_area: CollisionShape2D = map.get_spawn_area()
+	var spawning_rectangle : Rect2 = spawn_area.shape.get_rect()
+	var position = spawn_area.get_global_transform().get_origin() + spawning_rectangle.position
 	var size = spawning_rectangle.size
 	var x = randi_range(position.x+COW_SIZE,position.x + size.x  - COW_SIZE)
 	var y = randi_range(position.y+COW_SIZE,position.y + size.y  - COW_SIZE)

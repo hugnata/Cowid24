@@ -17,7 +17,7 @@ TODO:
 - [X] Un glisser déposer pour un Sprite2D
 	- [X] Gérer le cas où deux vaches sont aux même endroit
 	- [X] Empècher une vache de sortir du terrain
-	- [ ] Désactiver collision quand Drag'n'Drop
+	- [X] Désactiver collision quand Drag'n'Drop
 - [X] Mouvement des personnes (IA)
 - [X] État interne des personnes
 - [ ] Cycle malade
@@ -29,7 +29,7 @@ TODO:
 	- [ ] Trouver une musique d'ambiance
 	- [ ] Musique adaptative avec infection
 - [ ] Système pour le compte des malades et le seuil
-	- [ ] Afficher le nombre de vaches infectées
+	- [X] Afficher le nombre de vaches infectées
 	- [ ] Afficher le nombre de vache a ne pas dépasser
 - [ ] Système de contamination
 - [ ] Ajouter un mécanisme pour modifier la contagiosité d'une vache

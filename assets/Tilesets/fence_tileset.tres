@@ -1,0 +1,67 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dbqqh2wwixn6f"]
+
+[ext_resource type="Texture2D" uid="uid://bvn27forclcmf" path="res://assets/Objects/Invisible_Fence.png" id="1_kdibh"]
+[ext_resource type="Texture2D" uid="uid://je7abye4cwur" path="res://assets/Objects/Basic_Grass_Biom_things.png" id="2_3t6tl"]
+[ext_resource type="Texture2D" uid="uid://cgar3hsothpu8" path="res://assets/Objects/Paths.png" id="3_0qcle"]
+[ext_resource type="Texture2D" uid="uid://barune8504cou" path="res://assets/Objects/Wood_Bridge.png" id="4_vtiuk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7aejf"]
+texture = ExtResource("1_kdibh")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gxxu3"]
+texture = ExtResource("2_3t6tl")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5auin"]
+texture = ExtResource("3_0qcle")
+0:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mofxk"]
+texture = ExtResource("4_vtiuk")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 2
+sources/1 = SubResource("TileSetAtlasSource_gxxu3")
+sources/2 = SubResource("TileSetAtlasSource_5auin")
+sources/0 = SubResource("TileSetAtlasSource_7aejf")
+sources/3 = SubResource("TileSetAtlasSource_mofxk")
