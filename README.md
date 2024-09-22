@@ -11,6 +11,12 @@ Controls : Simply drag and drop the cows
 Cows that fart are sick and will contaminate the rest of the herd. Beware, however: healthy cows
 that are contaminated will remain infectious but symptom-free before they start farting themselves.
 
+## Credits:
+
+- ​Most of the grapicals asset in the game, including the wonderful cows, come from [Sprout Lands
+Asset Pack by Cup Nooble​](https://cupnooble.itch.io/sprout-lands-asset-pack)
+- The font used in the game is [Peaberry by emhuo​](https://emhuo.itch.io/peaberry-pixel-font)
+
 -----
 
 TODO:
