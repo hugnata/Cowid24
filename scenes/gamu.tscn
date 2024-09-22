@@ -1,15 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://8jjmqtfb8eui"]
+[gd_scene load_steps=9 format=3 uid="uid://8jjmqtfb8eui"]
 
 [ext_resource type="Script" path="res://scripts/init.gd" id="1_hrvy0"]
 [ext_resource type="PackedScene" uid="uid://dqpolho2b08oy" path="res://scenes/main_ui.tscn" id="2_8r7cq"]
 [ext_resource type="PackedScene" uid="uid://85fgpv02k41f" path="res://scenes/level_1.tscn" id="3_uaw6w"]
+[ext_resource type="PackedScene" uid="uid://4h7bkn3hywve" path="res://scenes/level_2.tscn" id="3_xlx06"]
 [ext_resource type="Script" path="res://scripts/cow_manager.gd" id="4_c7aa1"]
 [ext_resource type="PackedScene" uid="uid://bmv5tx17gjijq" path="res://scenes/level.tscn" id="4_drgpo"]
 [ext_resource type="PackedScene" uid="uid://lpktbkrksxwa" path="res://scenes/stat_ui.tscn" id="5_8gul5"]
+[ext_resource type="PackedScene" uid="uid://m5rpai4jjavb" path="res://scenes/end.tscn" id="5_q225y"]
 
 [node name="gamu" type="Node2D"]
 script = ExtResource("1_hrvy0")
-levels = Array[Resource]([ExtResource("3_uaw6w"), ExtResource("4_drgpo"), null])
+levels = Array[Resource]([ExtResource("3_uaw6w"), ExtResource("3_xlx06"), ExtResource("4_drgpo"), ExtResource("5_q225y")])
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 162)

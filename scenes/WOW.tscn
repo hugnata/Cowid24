@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=3 uid="uid://cc7pip1cr3ya6"]
+
+[ext_resource type="Texture2D" uid="uid://betysxas66av5" path="res://assets/Characters/Free Cow Sprites.png" id="1_m726w"]
+[ext_resource type="Texture2D" uid="uid://bgswat2ux6gt0" path="res://assets/Effects/prout.png" id="2_re3d3"]
+[ext_resource type="FontFile" uid="uid://bc5ixuukrxyle" path="res://assets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/Peaberry-Base.otf" id="3_x7g7g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnrsc"]
+atlas = ExtResource("1_m726w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smxao"]
+atlas = ExtResource("1_m726w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0wfo"]
+atlas = ExtResource("1_m726w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aprnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnrsc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smxao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0wfo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfaej"]
+atlas = ExtResource("2_re3d3")
+region = Rect2(4, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2dvb"]
+atlas = ExtResource("2_re3d3")
+region = Rect2(19, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncmhu"]
+atlas = ExtResource("2_re3d3")
+region = Rect2(34, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk55j"]
+atlas = ExtResource("2_re3d3")
+region = Rect2(49, 0, 15, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dbbsm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfaej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2dvb")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_ncmhu")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_sk55j")
+}],
+"loop": true,
+"name": &"fart",
+"speed": 5.0
+}]
+
+[node name="Logo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cow" type="AnimatedSprite2D" parent="."]
+position = Vector2(571, 353)
+scale = Vector2(18, 18)
+sprite_frames = SubResource("SpriteFrames_aprnt")
+
+[node name="Fart" type="AnimatedSprite2D" parent="Cow"]
+position = Vector2(-14.5, 8)
+sprite_frames = SubResource("SpriteFrames_dbbsm")
+animation = &"fart"
+autoplay = "fart"
+frame = 3
+frame_progress = 0.884973
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 174.0
+offset_right = 873.0
+offset_bottom = 257.0
+theme_override_fonts/font = ExtResource("3_x7g7g")
+theme_override_font_sizes/font_size = 64
+text = "Flatten the curve"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 57.0
+offset_right = 885.0
+offset_bottom = 185.0
+theme_override_fonts/font = ExtResource("3_x7g7g")
+theme_override_font_sizes/font_size = 128
+text = "Cowid 24:"

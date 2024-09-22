@@ -62,3 +62,8 @@ func get_number_infected() -> int:
 		func(cow) : return (cow.get_state() == Cow.HealthState.CONTAMINATED ||
 							cow.get_state() == Cow.HealthState.SICK)
 	).size()
+
+func get_number_sick() -> int:
+	return cows_node.get_children().filter(
+		func(cow) : return cow.get_state() == Cow.HealthState.SICK
+	).size()

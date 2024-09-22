@@ -102,11 +102,14 @@ func infects_other(delta: float):
 	var infections_areas: Array[Area2D]=$InfectionZone.get_overlapping_areas()
 	if infections_areas.is_empty():
 		return
-	infections_areas=infections_areas.slice(0,min(infections_areas.size(),max_nb_infectef_cows_once))
 	
+	var nb_infected = 0
 	for infections_area in infections_areas:
 		if rng.randf_range(0,1.0)<infection_chance:
 			infections_area.get_parent().set_health_state(HealthState.CONTAMINATED)
+			nb_infected += 1
+		if nb_infected >=  max_nb_infectef_cows_once:
+			return
 		
 
 func fart():
