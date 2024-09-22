@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://i382dibjid38" path="res://assets/Characters/Free Cow Sprites - Both mode.png" id="2_aqcyo"]
 [ext_resource type="Script" path="res://scenes/vache.gd" id="2_sjswn"]
-[ext_resource type="Texture2D" uid="uid://bgswat2ux6gt0" path="res://assets/Effects/prout.png" id="3_bds3t"]
+[ext_resource type="Texture2D" uid="uid://b6mhsj1m181h3" path="res://assets/Effects/prout_big.png" id="3_ivls6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8sbs"]
 size = Vector2(28, 18)
@@ -39,6 +39,23 @@ tracks/0/keys = {
 "values": [0, 1, 2]
 }
 
+[sub_resource type="Animation" id="Animation_078ov"]
+resource_name = "moving_idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VacheSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6667, 1.3333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [6, 7, 8]
+}
+
 [sub_resource type="Animation" id="Animation_5616k"]
 resource_name = "moving"
 length = 0.7
@@ -73,23 +90,6 @@ tracks/0/keys = {
 "values": [9, 10]
 }
 
-[sub_resource type="Animation" id="Animation_078ov"]
-resource_name = "moving_idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VacheSprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6667, 1.3333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [6, 7, 8]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v30tp"]
 _data = {
 "RESET": SubResource("Animation_qro8v"),
@@ -99,36 +99,36 @@ _data = {
 "moving_sick": SubResource("Animation_oaqii")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gfaej"]
-atlas = ExtResource("3_bds3t")
-region = Rect2(4, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_34oet"]
+atlas = ExtResource("3_ivls6")
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n2dvb"]
-atlas = ExtResource("3_bds3t")
-region = Rect2(19, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1c01"]
+atlas = ExtResource("3_ivls6")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ncmhu"]
-atlas = ExtResource("3_bds3t")
-region = Rect2(34, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0nia"]
+atlas = ExtResource("3_ivls6")
+region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sk55j"]
-atlas = ExtResource("3_bds3t")
-region = Rect2(49, 0, 15, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_re54e"]
+atlas = ExtResource("3_ivls6")
+region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ke0v"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gfaej")
+"texture": SubResource("AtlasTexture_34oet")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n2dvb")
-}, {
-"duration": 1.2,
-"texture": SubResource("AtlasTexture_ncmhu")
+"texture": SubResource("AtlasTexture_r1c01")
 }, {
 "duration": 1.5,
-"texture": SubResource("AtlasTexture_sk55j")
+"texture": SubResource("AtlasTexture_b0nia")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_re54e")
 }],
 "loop": false,
 "name": &"fart",
