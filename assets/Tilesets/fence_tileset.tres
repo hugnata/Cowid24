@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://btosll51rvh0r"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dbqqh2wwixn6f"]
 
 [ext_resource type="Texture2D" uid="uid://bvn27forclcmf" path="res://assets/Objects/Invisible_Fence.png" id="1_kdibh"]
 [ext_resource type="Texture2D" uid="uid://je7abye4cwur" path="res://assets/Objects/Basic_Grass_Biom_things.png" id="2_3t6tl"]

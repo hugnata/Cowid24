@@ -118,22 +118,40 @@ func _input(event):
 		if map.is_viable_drop_location(cow_dragged.position):
 			last_valid_position = cow_dragged.position
 
+# Called when game is over, after 2 second of delay
+func game_over(timer: Timer):
+	self.main_ui.display_game_over()
+	timer.queue_free()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_level("res://scenes/level_1.tscn")
 
+func stop_all_cows():
+	for cow in cows.get_children():
+		cow.stop_moving_madafaka()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if paused:
+		return
 	time_elapsed += delta
 	var number_infected = cow_manager.get_number_infected()
 	update_ui()
 	if number_infected >= max_infected_cows:
 		paused = true
-		main_ui.display_game_over()
+		var timer = Timer.new()
+		self.add_child(timer)
+		timer.wait_time = 2
+		timer.one_shot = true
+		timer.start()
+		timer.connect("timeout", game_over.bind(timer))
+		stop_all_cows()
 	if time_elapsed > vaccine_dev_time:
 		paused = true
+		stop_all_cows()
 		main_ui.display_success()
+		
 
 func update_ui():
 	var progression = 100*time_elapsed/ vaccine_dev_time
