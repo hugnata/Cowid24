@@ -21,19 +21,19 @@ TODO:
 - [X] Mouvement des personnes (IA)
 - [X] État interne des personnes
 - [ ] Cycle malade
-	- [ ] Créer spritesheet prout
+	- [X] Créer spritesheet prout
 	- [ ] Créer spritesheet vache malade
-	- [ ] Syncroniser pet avec infection
+	- [X] Syncroniser pet avec infection
 	- [ ] Rajouter son pet
 - [ ] Son
 	- [ ] Trouver une musique d'ambiance
 	- [ ] Musique adaptative avec infection
 - [ ] Système pour le compte des malades et le seuil
 	- [X] Afficher le nombre de vaches infectées
-	- [ ] Afficher le nombre de vache a ne pas dépasser
-- [ ] Système de contamination
+	- [X] Afficher le nombre de vache a ne pas dépasser
+- [X] Système de contamination
 - [ ] Ajouter un mécanisme pour modifier la contagiosité d'une vache
 - [ ] Visuel pour la page steam
-- [ ] Système de niveau
-- [ ] Boucle de jeu (Game over/Win)
-- [ ] Menu
+- [X] Système de niveau
+- [X] Boucle de jeu (Game over/Win)
+- [X] Menu
