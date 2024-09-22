@@ -2,7 +2,11 @@ extends CharacterBody2D
 
 @onready var rng = RandomNumberGenerator.new()
 @onready var hit_box: CollisionShape2D = $HitBox
+
 @export var avg_time_sec_between_farts_when_healthy_sec=20
+@export_category("Infection factors")
+@export_range(0.0,1.0) var infection_chance: float 
+@export_range(1,999999) var max_nb_infectef_cows_once : int
 
 enum MovingState{STATIC,MOVING}
 enum HealthState{HEALTHY=0,CONTAMINATED=1,SICK=2,IMMUNIZED=3}
@@ -93,6 +97,17 @@ func infects_other(delta: float):
 		HealthState.SICK:
 			m_infection_timer=rng.randf_range(2,4)
 			print("Infecting")
+			
+	#Infection
+	var infections_areas: Array[Area2D]=$InfectionZone.get_overlapping_areas()
+	if infections_areas.is_empty():
+		return
+	infections_areas=infections_areas.slice(0,min(infections_areas.size(),max_nb_infectef_cows_once))
+	
+	for infections_area in infections_areas:
+		if rng.randf_range(0,1.0)<infection_chance:
+			infections_area.get_parent().set_health_state(HealthState.CONTAMINATED)
+		
 
 func fart():
 	if $Fart.visible:
@@ -100,14 +115,6 @@ func fart():
 	$Fart.visible=true
 	$Fart.play("fart")
 
-	#Infection
-	var infections_areas: Array[Area2D]=$InfectionZone.get_overlapping_areas()
-	if infections_areas.is_empty():
-		return
-	
-	for infections_area in infections_areas:
-		if rng.randf_range(0,1.0)<0.5:
-			infections_area.get_parent().set_health_state(HealthState.CONTAMINATED)
 	
 func update_animation():
 	match m_moving_state:

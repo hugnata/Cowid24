@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://8jjmqtfb8eui"]
 
 [ext_resource type="Script" path="res://scripts/init.gd" id="1_hrvy0"]
-[ext_resource type="PackedScene" path="res://scenes/main_ui.tscn" id="2_8r7cq"]
+[ext_resource type="PackedScene" uid="uid://dqpolho2b08oy" path="res://scenes/main_ui.tscn" id="2_8r7cq"]
 [ext_resource type="PackedScene" uid="uid://85fgpv02k41f" path="res://scenes/level_1.tscn" id="3_uaw6w"]
 [ext_resource type="Script" path="res://scripts/cow_manager.gd" id="4_c7aa1"]
 [ext_resource type="PackedScene" uid="uid://b74bg2tplxcuv" path="res://scenes/level.tscn" id="4_drgpo"]
@@ -22,6 +22,10 @@ cows_node = NodePath("../Cows")
 [node name="Cows" type="Node" parent="."]
 
 [node name="StatUI" parent="." instance=ExtResource("5_8gul5")]
+offset_left = 397.0
+offset_top = -9.0
+offset_right = 397.0
+offset_bottom = -9.0
 
 [node name="MainUi" parent="." instance=ExtResource("2_8r7cq")]
 visible = false
