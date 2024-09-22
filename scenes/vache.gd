@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @onready var rng = RandomNumberGenerator.new()
+@onready var hit_box: CollisionShape2D = $HitBox
+
 
 enum MovingState{STATIC,MOVING}
 enum HealthState{HEALTHY=0,CONTAMINATED=1,SICK=2,IMMUNIZED=3}
@@ -139,6 +141,11 @@ func stop_moving_madafaka():
 func move_ya_ass():
 	m_move_timer=0
 
+func disable_collisions():
+	hit_box.disabled = true
+	
+func enable_collisions():
+	hit_box.disabled = false
 
 		
 	

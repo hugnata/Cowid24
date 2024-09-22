@@ -37,13 +37,17 @@ func _input(event):
 			if cow_dragged!=null:
 				last_valid_position = cow_dragged.position
 				cow_dragged.stop_moving_madafaka()
+				cow_dragged.disable_collisions()
+				
 				
 		# Stop dragging if the button is released.
 		if cow_dragged and not event.pressed:
 			cow_dragged.position = last_valid_position
+			cow_dragged.enable_collisions()
 			cow_dragged.move_ya_ass()
 			cow_dragged = null
 			last_valid_position = null
+			
 	
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		var mouse_world_pos = screen_to_world_pos(event.position)
