@@ -11,6 +11,18 @@ of the herd. Be careful however, as the situation can easily turn into a complet
 Cows that fart are sick and will contaminate the rest of the herd. Beware, however: healthy cows
 that are contaminated will remain infectious but symptom-free before they start farting themselves.
 
+## Play:
+
+- Play online on [itch.io](https://hugnata.itch.io/cowid-24)
+- Download the windows version [here](https://github.com/hugnata/Cowid24/releases)
+
+## Known problems:
+
+- The drag'n'drop mecanism **will not work if you resize the window screen**
+- On linux and firefox, the drag'n'drop is not working
+
+As it is a small game for a game jam, there is plan for fixing it.
+
 ## Credits:
 
 - ​Most of the grapicals asset in the game, including the wonderful cows, come from [Sprout Lands
