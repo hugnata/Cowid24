@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2uk4grcujstx"]
+
+[ext_resource type="Script" path="res://scripts/endless.gd" id="1_bdx21"]
+[ext_resource type="PackedScene" uid="uid://d3x7wf5d6shtt" path="res://scenes/endless_level.tscn" id="2_f41sy"]
+[ext_resource type="Script" path="res://scripts/cow_manager.gd" id="6_emwnl"]
+[ext_resource type="PackedScene" uid="uid://lpktbkrksxwa" path="res://scenes/stat_ui.tscn" id="7_l4xaa"]
+[ext_resource type="PackedScene" uid="uid://dqpolho2b08oy" path="res://scenes/main_ui.tscn" id="8_ah8qf"]
+
+[node name="endless_mode" type="Node2D"]
+script = ExtResource("1_bdx21")
+levels = Array[Resource]([ExtResource("2_f41sy")])
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(288, 162)
+zoom = Vector2(2, 2)
+
+[node name="Cow Manager" type="Node" parent="." node_paths=PackedStringArray("cows_node")]
+script = ExtResource("6_emwnl")
+cows_node = NodePath("../Cows")
+
+[node name="Cows" type="Node" parent="."]
+
+[node name="StatUI" parent="." instance=ExtResource("7_l4xaa")]
+offset_left = 401.0
+offset_top = -17.0
+offset_right = 401.0
+offset_bottom = -17.0
+
+[node name="MainUi" parent="." instance=ExtResource("8_ah8qf")]
+visible = false
+z_index = 4
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -4.0
+offset_top = -24.0
+offset_right = -4.0
+offset_bottom = -24.0
+grow_horizontal = 1
+grow_vertical = 1

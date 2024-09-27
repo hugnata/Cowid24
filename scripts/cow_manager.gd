@@ -31,8 +31,6 @@ func spawn_cow(map: Node2D):
 	print("Hello, I'm a cow ")
 	var cow_scene = preload("res://scenes/vache.tscn")
 	var spawn_area: CollisionShape2D = map.get_spawn_area()
-	print(map)
-	print(spawn_area)
 	assert(spawn_area.shape.get_class()=="RectangleShape2D" && 
 	"The cow manager script only handles Rectangle Spawning Area for now")
 	var spawning_rectangle : Rect2 = spawn_area.shape.get_rect()
@@ -62,6 +60,9 @@ func get_number_infected() -> int:
 		func(cow) : return (cow.get_state() == Cow.HealthState.CONTAMINATED ||
 							cow.get_state() == Cow.HealthState.SICK)
 	).size()
+	
+func get_number_cows() -> int:
+	return cows_node.get_children().size()
 
 func get_number_sick() -> int:
 	return cows_node.get_children().filter(

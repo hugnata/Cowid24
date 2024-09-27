@@ -11,6 +11,12 @@ func display_game_over():
 	button.pressed.connect(self.game_over)
 	self.visible = true
 	
+func display_endless(score: int):
+	label.text = "You got " + str(score) + " cows !"
+	button.text = "Start again"
+	button.pressed.connect(self.game_over)
+	self.visible = true
+	
 func display_success():
 	label.text = "Level completed !"
 	button.text = "Next level"

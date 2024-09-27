@@ -147,13 +147,22 @@ animation = &"fart"
 autoplay = "fart"
 
 [node name="StartButton" type="Button" parent="."]
-offset_left = -139.0
-offset_top = 227.0
-offset_right = 139.0
-offset_bottom = 283.0
+offset_left = -340.0
+offset_top = 239.0
+offset_right = -62.0
+offset_bottom = 295.0
 theme_override_fonts/font = ExtResource("1_u1eni")
 theme_override_font_sizes/font_size = 48
 text = "Start"
+
+[node name="EndlessButton" type="Button" parent="."]
+offset_left = 41.0
+offset_top = 241.0
+offset_right = 379.0
+offset_bottom = 297.0
+theme_override_fonts/font = ExtResource("1_u1eni")
+theme_override_font_sizes/font_size = 48
+text = "Endless mode"
 
 [node name="Win" type="Node" parent="."]
 

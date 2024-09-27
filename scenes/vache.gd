@@ -33,9 +33,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	var chance_2_fart=1.0/avg_time_sec_between_farts_when_healthy_sec*delta
-	
-	if rng.randf()<chance_2_fart:
-		print("Healthy fart")
+	# Sick cows fart mwoooore
+	if m_health_state == HealthState.CONTAMINATED || m_health_state == HealthState.SICK:
+		chance_2_fart *= 2
+
+	if rng.randf() < chance_2_fart:
 		fart()
 	
 	infects_other(delta)

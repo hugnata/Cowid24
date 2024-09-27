@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://m5rpai4jjavb"]
+[gd_scene load_steps=8 format=3 uid="uid://m5rpai4jjavb"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_800h4"]
 [ext_resource type="TileSet" uid="uid://ddk2rrpooi2xc" path="res://assets/Tilesets/tileset_godot.tres" id="2_eojp4"]
 [ext_resource type="TileSet" uid="uid://btosll51rvh0r" path="res://assets/Tilesets/fence_tileset.tres" id="3_r553u"]
 [ext_resource type="FontFile" uid="uid://bc5ixuukrxyle" path="res://assets/Fonts/Peaberry-Font-v2.0/Peaberry Font Family/Peaberry Base/Peaberry-Base.otf" id="4_8eujm"]
 [ext_resource type="Script" path="res://scenes/end.gd" id="5_6kivd"]
+[ext_resource type="Script" path="res://scenes/button.gd" id="6_c4c0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j6tug"]
 size = Vector2(127.266, 95.25)
@@ -32,8 +33,19 @@ offset_top = 12.0
 offset_right = 568.0
 offset_bottom = 411.0
 theme_override_fonts/font = ExtResource("4_8eujm")
-theme_override_font_sizes/font_size = 128
-text = "You DID it !"
+theme_override_font_sizes/font_size = 64
+text = "You DID it,
+congrats!"
 horizontal_alignment = 1
 autowrap_mode = 2
 script = ExtResource("5_6kivd")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 116.0
+offset_top = 163.0
+offset_right = 422.0
+offset_bottom = 241.0
+theme_override_fonts/font = ExtResource("4_8eujm")
+theme_override_font_sizes/font_size = 32
+text = "Back to menu"
+script = ExtResource("6_c4c0w")
